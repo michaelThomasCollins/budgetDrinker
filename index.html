@@ -6,9 +6,9 @@
 </head>
 <body>
 <form id="values">
-    Volume (mL): <input type="text" name="volume"><br>
-    Percentage (%AbV): <input type="text" name="percentage"><br>
-    Price (£): <input type="text" name="price"><br>
+    Volume (mL): <input type="text" name="volume" onkeypress="enterPressed(event)"><br>
+    Percentage (%AbV): <input type="text" name="percentage" onkeypress="enterPressed(event)"><br>
+    Price (£): <input id="price" type="text" name="price" onkeypress="enterPressed(event)"><br>
 </form>
 
 <input type="button" onclick="calculation()" value="Submit">
@@ -16,7 +16,6 @@
 <p id="result"></p>
 
 <script>
-    //TODO Doesn't work for values under £1
     function calculation() {
         var x = document.getElementById("values");
         var volume = x.elements[0].value;
@@ -26,7 +25,13 @@
         var ttlAlcohol = (volume / 100) * percentage;
 
         var total = ttlAlcohol / price;
-        document.getElementById("result").innerHTML = total.toString() + " mL of alcohol to the £";
+        document.getElementById("result").innerHTML = total.toString() + " mL/£";
+    }
+
+    function enterPressed(e){
+        if (e.which == 13 || e.keyCode == 13) {
+            calculation()
+        }
     }
 </script>
 </body>

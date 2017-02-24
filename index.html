@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Budget Drinker</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 <form id="values">
@@ -11,7 +12,7 @@
     Price (£): <input id="price" type="text" name="price" onkeypress="enterPressed(event)"><br>
 </form>
 
-<input type="button" onclick="calculation()" value="Submit">
+<input id="submit" type="button" onclick="calculation()" value="Submit">
 
 <p id="result"></p>
 

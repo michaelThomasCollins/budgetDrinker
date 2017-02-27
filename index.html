@@ -14,7 +14,8 @@
 
 <input id="submit" type="button" onclick="calculation()" value="Submit">
 
-<p id="result"></p>
+<p id="mlResult"></p>
+<p id="unitsResult"></p>
 
 <script>
     function calculation() {
@@ -23,10 +24,22 @@
         var percentage = x.elements[1].value;
         var price= x.elements[2].value;
 
+        // Calculate Amount of alcohol
         var ttlAlcohol = (volume / 100) * percentage;
 
+        // 1 Unit is equal to 10 mL of alcohol
+        var units = ttlAlcohol/10;
+
+        //Calculate and Round numbers
         var total = ttlAlcohol / price;
-        document.getElementById("result").innerHTML = total.toString() + " mL/£";
+        total =  total.toFixed(3);
+
+        var totalUnits = units / price;
+        totalUnits = totalUnits.toFixed(3);
+
+        //Display calculations
+        document.getElementById("mlResult").innerHTML = total.toString() + " mL/£";
+        document.getElementById("unitsResult").innerHTML = totalUnits.toString() + " Units/£";
     }
 
     function enterPressed(e){

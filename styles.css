@@ -2,19 +2,8 @@ body {
     background-color: lightcyan;
 }
 
-/*#submit {*/
-    /*color: #fff;*/
-    /*font-size: 0;*/
-    /*width: 135px;*/
-    /*height: 60px;*/
-    /*border: none;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-    /*background: #0c0 url(image) 0 0 no-repeat;*/
-/*}*/
-
 input[type=text], select {
-    width: 100%;
+    width: 25%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -40,8 +29,16 @@ input[type=submit]:hover {
 
 div {
     border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+    display: inline;
+    background-color: lightcyan;
+    padding: 5px 1px;
+
 }
 
-p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 40px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+p { color: #685206;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    line-height: 24px;
+    margin: 0 0 24px;
+    text-align: justify;
+    text-justify: inter-word; }

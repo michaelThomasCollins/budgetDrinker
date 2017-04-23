@@ -7,9 +7,29 @@
 </head>
 <body>
 <form id="values">
-    Volume (mL): <input type="text" name="volume" onkeypress="enterPressed(event)"><br>
-    Percentage (%AbV): <input type="text" name="percentage" onkeypress="enterPressed(event)"><br>
-    Price (£): <input id="price" type="text" name="price" onkeypress="enterPressed(event)"><br>
+    <div class="volumeDiv">
+    Volume:<br>
+        <input type="text" name="volume" onkeypress="enterPressed(event)">
+    <select id="measurement">
+        <option value="mL">mL</option>
+        <option value="cL">cL</option>
+        <option value="L">L</option>
+    </select>
+    </div>
+    <br>
+
+    <div class="percentageDiv">
+    Percentage (%AbV):    <br>
+        <input type="text" name="percentage" onkeypress="enterPressed(event)">
+    </div>
+    <br>
+
+    <div class="priceDiv">
+    Price (£):    <br>
+        <input id="price" type="text" name="price" onkeypress="enterPressed(event)">
+    </div>
+    <br>
+
 </form>
 
 <input id="submit" type="button" onclick="calculation()" value="Submit">
@@ -20,9 +40,22 @@
 <script>
     function calculation() {
         var x = document.getElementById("values");
-        var volume = x.elements[0].value;
-        var percentage = x.elements[1].value;
-        var price= x.elements[2].value;
+        var initialVolume = x.elements[0].value;
+        var measurement = x.elements[1].value;
+        var percentage = x.elements[2].value;
+        var price= x.elements[3].value;
+        var volume;
+
+        if (measurement == "mL"){
+            //mL
+            volume = initialVolume / 100;
+        } else if (measurement == "cL") {
+            //cL
+            volume = initialVolume/ 10
+        } else if (measurement == "L"){
+            //L
+            volume = initialVolume;
+        }
 
         // Calculate Amount of alcohol
         var ttlAlcohol = (volume / 100) * percentage;
